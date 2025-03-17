@@ -1,6 +1,4 @@
-const { defineConfig } = require("tailwindcss");
-
-module.exports = defineConfig({
+module.exports = {
   darkMode: ["class"],
   content: [
     "./index.html",
@@ -66,4 +64,4 @@ module.exports = defineConfig({
     },
   },
   plugins: [],
-});
+};
