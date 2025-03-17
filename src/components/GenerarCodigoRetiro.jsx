@@ -6,7 +6,7 @@ const GenerarCodigoRetiro = () => {
   const [codigo, setCodigo] = useState(null);
 
   const handleGenerarCodigo = async () => {
-    const res = await fetch("http://localhost:5000/api/cuentas/generar-codigo", {
+    const res = await fetch("https://backend-cajero.onrender.com/api/cuentas/generar-codigo", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({ numero, clave }),

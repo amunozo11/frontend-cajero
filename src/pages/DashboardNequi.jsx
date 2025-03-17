@@ -67,7 +67,7 @@ const DashboardNequi = () => {
                 return;
             }
             try {
-                const res = await fetch("http://localhost:5000/api/cuentas/profile", {
+                const res = await fetch("https://backend-cajero.onrender.com/api/cuentas/profile", {
                     headers: { "Authorization": "Bearer " + token },
                 });
                 const data = await res.json();
@@ -92,7 +92,7 @@ const DashboardNequi = () => {
                 return;
             }
             try {
-                const res = await fetch("http://localhost:5000/api/cuentas/transactions", {
+                const res = await fetch("https://backend-cajero.onrender.com/api/cuentas/transactions", {
                     headers: { "Authorization": "Bearer " + token },
                 });
                 const data = await res.json();
@@ -150,7 +150,7 @@ const DashboardNequi = () => {
         setError("");
         try {
             const token = localStorage.getItem("token");
-            const res = await fetch("http://localhost:5000/api/cuentas/generar-codigo", {
+            const res = await fetch("https://backend-cajero.onrender.com/api/cuentas/generar-codigo", {
                 method: "POST",
                 headers: {
                     "Content-Type": "application/json",

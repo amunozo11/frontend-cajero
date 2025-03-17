@@ -110,8 +110,8 @@ export default function AuthBancolombia() {
 
     const endpoint =
       formType === "login"
-        ? "http://localhost:5000/api/cuentas/login"
-        : "http://localhost:5000/api/cuentas/"
+        ? "https://backend-cajero.onrender.com/api/cuentas/login"
+        : "https://backend-cajero.onrender.com/api/cuentas/"
 
     // En login se utiliza el teléfono ingresado y se le antepone "1"
     const payload =

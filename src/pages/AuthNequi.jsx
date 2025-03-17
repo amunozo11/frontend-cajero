@@ -104,8 +104,8 @@ export default function AuthNequi() {
     // Endpoint según acción: login o registro
     const endpoint =
       formType === "login"
-        ? "http://localhost:5000/api/cuentas/login"
-        : "http://localhost:5000/api/cuentas/";
+        ? "https://backend-cajero.onrender.com/api/cuentas/login"
+        : "https://backend-cajero.onrender.com/api/cuentas/";
 
     // Para Nequi:
     // - En login se envía: { telefono, clave, tipo: "nequi" } 

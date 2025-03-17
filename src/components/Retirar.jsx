@@ -7,7 +7,7 @@ const Retirar = () => {
   const [mensaje, setMensaje] = useState("");
 
   const handleRetiro = async () => {
-    const res = await fetch("http://localhost:5000/api/cuentas/retirar", {
+    const res = await fetch("https://backend-cajero.onrender.com/api/cuentas/retirar", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({ numero, codigo, monto }),

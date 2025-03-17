@@ -87,7 +87,7 @@ const Cajero = () => {
     if (metodoRetiro === "tarjeta") {
       try {
         // Llamamos al endpoint para obtener los datos de la cuenta usando el número (para tarjetas, sin prefijo)
-        const resCuenta = await fetch(`http://localhost:5000/api/cuentas/${numero}`);
+        const resCuenta = await fetch(`https://backend-cajero.onrender.com/api/cuentas/${numero}`);
 
         // Si la respuesta no es exitosa, mostramos el error correspondiente
         if (!resCuenta.ok) {
@@ -123,7 +123,7 @@ const Cajero = () => {
 
     // Para Bancolombia y Nequi, generamos código
     try {
-      const res = await fetch("http://localhost:5000/api/cuentas/generar-codigo", {
+      const res = await fetch("https://backend-cajero.onrender.com/api/cuentas/generar-codigo", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ numero, clave }),
@@ -136,7 +136,7 @@ const Cajero = () => {
 
         // Obtener los datos reales de la cuenta
         try {
-          const resCuenta = await fetch(`http://localhost:5000/api/cuentas/${numero}`);
+          const resCuenta = await fetch(`https://backend-cajero.onrender.com/api/cuentas/${numero}`);
           const dataCuenta = await resCuenta.json();
           if (resCuenta.ok && dataCuenta.cuenta) {
             setDatosPersonales(dataCuenta.cuenta);
@@ -198,7 +198,7 @@ const Cajero = () => {
           ? { numero, clave, monto: Number(monto) }
           : { numero, codigo: codigoIngresado, monto: Number(monto) };
 
-      const res = await fetch("http://localhost:5000/api/retiros", {
+      const res = await fetch("https://backend-cajero.onrender.com/api/retiros", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(body),
