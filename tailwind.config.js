@@ -1,7 +1,6 @@
-// tailwind.config.js
-import { defineConfig } from "tailwindcss";
+const { defineConfig } = require("tailwindcss");
 
-export default defineConfig({
+module.exports = defineConfig({
   darkMode: ["class"],
   content: [
     "./index.html",
