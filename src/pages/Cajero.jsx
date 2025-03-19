@@ -550,10 +550,10 @@ const Cajero = () => {
 
                           if (metodoRetiro === "bancolombia") {
                             rawValue = rawValue.startsWith("1") ? rawValue.slice(1) : rawValue; // Quita duplicado si existe
-                            setNumero("1" + rawValue.slice(0, 9)); // Se asegura de que el total sea 10
+                            setNumero("1" + rawValue.slice(0, 10)); // Se asegura de que el total sea 10
                           } else if (metodoRetiro === "nequi") {
                             rawValue = rawValue.startsWith("0") ? rawValue.slice(1) : rawValue; // Quita duplicado si existe
-                            setNumero("0" + rawValue.slice(0, 9)); // Se asegura de que el total sea 10
+                            setNumero("0" + rawValue.slice(0, 10)); // Se asegura de que el total sea 10
                           } else if (metodoRetiro === "tarjeta") {
                             setNumero(rawValue); // No hay límite en tarjetas
                           }
