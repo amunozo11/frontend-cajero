@@ -546,19 +546,16 @@ const Cajero = () => {
                         className="pl-10 w-full p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all"
                         value={numero}
                         onChange={(e) => {
-                          const rawValue = e.target.value;
-                          // Solo actualizar si es vacío o contiene solo dígitos
-                          if (rawValue === "" || /^[0-9]+$/.test(rawValue)) {
-                            if (metodoRetiro === "bancolombia") {
-                              // Si ya tiene el prefijo "1", quitarlo para evitar duplicados
-                              const sinPrefijo = rawValue.startsWith("1") ? rawValue.slice(1) : rawValue;
-                              setNumero("1" + sinPrefijo);
-                            } else if (metodoRetiro === "nequi") {
-                              const sinPrefijo = rawValue.startsWith("0") ? rawValue.slice(1) : rawValue;
-                              setNumero("0" + sinPrefijo);
-                            } else if (metodoRetiro === "tarjeta") {
-                              setNumero(rawValue);
-                            }
+                          let rawValue = e.target.value.replace(/\D/g, ""); // Elimina todo lo que no sea número
+
+                          if (metodoRetiro === "bancolombia") {
+                            rawValue = rawValue.startsWith("1") ? rawValue.slice(1) : rawValue; // Quita duplicado si existe
+                            setNumero("1" + rawValue.slice(0, 9)); // Se asegura de que el total sea 10
+                          } else if (metodoRetiro === "nequi") {
+                            rawValue = rawValue.startsWith("0") ? rawValue.slice(1) : rawValue; // Quita duplicado si existe
+                            setNumero("0" + rawValue.slice(0, 9)); // Se asegura de que el total sea 10
+                          } else if (metodoRetiro === "tarjeta") {
+                            setNumero(rawValue); // No hay límite en tarjetas
                           }
                         }}
                       />
