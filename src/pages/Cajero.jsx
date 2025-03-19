@@ -882,7 +882,7 @@ const Cajero = () => {
                         <div className="space-y-2">
                           <div className="flex justify-between">
                             <span className="text-gray-600">Número de Cuenta:</span>
-                            <span className="font-medium">{censorNumber(datosRetiro.numero)}</span>
+                            <span className="font-medium">{(datosRetiro.numero)}</span>
                           </div>
                           <div className="flex justify-between">
                             <span className="text-gray-600">Monto Retirado:</span>
